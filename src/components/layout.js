@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer style={{ marginTop: '1rem' }}>
+        <footer style={{ marginTop: "1rem" }}>
           © {new Date().getFullYear()}, MineStone - A Minecraft Open Server
         </footer>
       </div>
