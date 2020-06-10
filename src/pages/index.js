@@ -2,25 +2,18 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Box from "../components/box"
-import Dot from "../components/dot"
+
 import Form from "../components/form"
 import ServerLink from "../components/serverLink"
 import UltraContainer from "../components/ultra-container"
+import Status from "../components/status"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <div style={{ marginBottom: '3rem' }}>
       <p>Welcome to MineStone official website.</p>
-      <Box>
-        <p>Status</p>
-
-        <Dot
-          style={{ backgroundColor: false ? 'rgb(131, 255, 205)' : 'rgb(203, 74, 58)' }}
-        /> Online  -  0/20 players
-
-      </Box>
+      <Status />
     </div>
     <div style={{ marginBottom: '3rem' }}>
       <h3>Join Now!</h3>
