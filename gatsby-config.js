@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `MineStone`,
-    description: `A legendary server`,
+    description: `A Legendary Minecraft Server`,
     author: `@italosa`,
   },
   plugins: [
