@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&display=swap');
+
+* {
+  font-family: 'News Cycle', sans-serif !important;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
