@@ -10,58 +10,63 @@ const Register = () => {
   const [sent, setSent] = useState(false)
   const [errorMsg, setErrorMsg] = useState(false)
   const [form, setForm] = useState({
-    userName: '',
-    email: ''
+    userName: "",
+    email: "",
   })
-  const [{ loading, error }, create] = useAxios({
-    method: 'POST',
-    url: `${GATSBY_API_URL}/account/register`
-  }, { manual: true })
+  const [{ loading, error }, create] = useAxios(
+    {
+      method: "POST",
+      url: `${GATSBY_API_URL}/account/register`,
+    },
+    { manual: true }
+  )
 
-
-  const hendleChange = (event) => {
-    setForm(Object.assign({}, form, {
-      [event.target.name]: event.target.value,
-    }),
+  const hendleChange = event => {
+    setForm(
+      Object.assign({}, form, {
+        [event.target.name]: event.target.value,
+      })
     )
   }
 
-  const submitHandler = async (event) => {
+  const submitHandler = async event => {
     event.preventDefault()
     const { data } = await create({
-      data: form
+      data: form,
     })
     if (data.error) {
-      if (data.error.code === 'USER_IN_USE') {
-        setErrorMsg('User already in use')
-      } else if (data.error.code === 'EMAIL_IN_USE') {
-        setErrorMsg('Email address already in use')
+      if (data.error.code === "USER_IN_USE") {
+        setErrorMsg("User already in use")
+      } else if (data.error.code === "EMAIL_IN_USE") {
+        setErrorMsg("Email address already in use")
       } else {
-        setErrorMsg('Try again later')
+        setErrorMsg("Try again later")
       }
     } else {
-      setSent(true);
+      setSent(true)
     }
   }
 
-  const isValid = (form) => {
-    const isValidEmail = form.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+  const isValid = form => {
+    const isValidEmail = form.email.match(
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+    )
     return form.userName.length >= 3 && isValidEmail
   }
 
   return (
     <UltraContainer>
-      {!loading && !error && !sent &&
+      {!loading && !error && !sent && (
         <Form onSubmit={submitHandler}>
           <h3>Register</h3>
           <p>
-            Register to be able to join our server. You will recieve an email with
-            a confirmation link.
-        </p>
+            Register to be able to join our server. You will recieve an email
+            with a confirmation link.
+          </p>
 
           <label htmlFor="userName">
             User Name
-        <input
+            <input
               type="text"
               name="userName"
               id="userName"
@@ -72,7 +77,7 @@ const Register = () => {
 
           <label htmlFor="email">
             Email
-        <input
+            <input
               type="email"
               name="email"
               id="email"
@@ -80,16 +85,23 @@ const Register = () => {
             ></input>
           </label>
 
-          <button type="submit" disabled={!isValid(form)}> Send </button>
-
-          <span>
+          <button type="submit" disabled={!isValid(form)}>
             {" "}
-            {errorMsg && <b> >> {errorMsg}</b>}{" "}
-          </span>
-        </Form>}
+            Send{" "}
+          </button>
+
+          <span> {errorMsg && <b> >> {errorMsg}</b>} </span>
+        </Form>
+      )}
       {loading && <p>Loading...</p>}
       {error && <p>Error...</p>}
-      {sent && <p>Thank you for registering for the MineStone. Check your email box, span and trash. The email was sent with this subject: <b>MineStone - Confirm your account</b>.</p>}
+      {sent && (
+        <p>
+          Thank you for registering for the MineStone. Check your email box,
+          span and trash. The email was sent with this subject:{" "}
+          <b>MineStone - Confirm your account</b>.
+        </p>
+      )}
     </UltraContainer>
   )
 }
