@@ -21,7 +21,7 @@ const IndexPage = () => (
         You must have to register to be added to whitelist
       </span>
     </div>
-    <Register />
+    {/*<Register />*/}
   </Layout>
 )
 
