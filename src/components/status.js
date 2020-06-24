@@ -30,7 +30,7 @@ const Status = () => {
             {data.online &&
               `${data.players.online}/${data.players.max} players`}
           </p>
-          <p>{data.players.list && data.players.list.join(", ")}</p>
+          <p>{data.players && data.players.list && data.players.list.join(", ")}</p>
         </Box>
       )}
     </>
