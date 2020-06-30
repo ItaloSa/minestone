@@ -4,10 +4,10 @@ import useAxios from "axios-hooks"
 import Box from "./box"
 import Dot from "./dot"
 
-const { GATSBY_STATUS_API_URL } = process.env
+const { GATSBY_API_URL } = process.env
 
 const Status = () => {
-  const [{ data, loading, error }] = useAxios(GATSBY_STATUS_API_URL)
+  const [{ data, loading, error }] = useAxios(`${GATSBY_API_URL}/status`)
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error!</p>
@@ -30,7 +30,7 @@ const Status = () => {
             {data.online &&
               `${data.players.online}/${data.players.max} players`}
           </p>
-          <p>{data.players && data.players.list && data.players.list.join(", ")}</p>
+          <p>{data.players && data.players.list.join(", ")}</p>
         </Box>
       )}
     </>

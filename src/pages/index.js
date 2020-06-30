@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 
 import ServerLink from "../components/serverLink"
 import Status from "../components/status"
-import Register from "../components/register"
+// import Register from "../components/register"
 
 const IndexPage = () => (
   <Layout>
