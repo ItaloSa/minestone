@@ -9,4 +9,8 @@ export default styled.div`
   height: 72px;
   padding: 0.99rem;
   width: 100%;
+  > a {
+    text-decoration: none;
+    color: #222;
+  }
 `

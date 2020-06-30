@@ -17,9 +17,18 @@ const IndexPage = () => (
     <div style={{ marginBottom: "3rem" }}>
       <h3>Join Now!</h3>
       <ServerLink>server.mine-stone.tk</ServerLink>
-      <span style={{ fontSize: "14px" }}>
+      {/* <span style={{ fontSize: "14px" }}>
         You must have to register to be added to whitelist
-      </span>
+      </span> */}
+    </div>
+    <div style={{ marginBottom: "3rem" }}>
+      <h3>Check our map</h3>
+      <ServerLink>
+        <a href="https://maps.mine-stone.tk" target="_blank">maps.mine-stone.tk</a>
+      </ServerLink>
+      {/* <span style={{ fontSize: "14px" }}>
+        You must have to register to be added to whitelist
+      </span> */}
     </div>
     {/*<Register />*/}
   </Layout>
